@@ -11,7 +11,32 @@ public class stack {
         this.size = size;
     }
     public void push(int x){
-        StackOverflowException ex = new StackOverflowException("Stack Overflow");
-        throw ex;
+        if(tos == size-1){
+            System.out.println("stack overflow");
+            return;
+        }
+        tos++;
+        arr[tos] = x;
+    }
+    public int pop(){
+        if(tos == -1){
+            System.out.println("Stack UnderFlow");
+            return -1;
+        }
+        int x;
+        x = arr[tos];
+        tos--;
+        return x;
+    }
+
+    //Code for peek:
+    public int peek(){
+        if(tos == -1){
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        int x;
+        x = arr[tos];
+        return x;
     }
 }
